@@ -10,7 +10,7 @@ sprite1 = create_sprite("flower", -100, 100)
 # sprite2 = create_sprite("Flowerbouquet")
 Flower = 0
 cost = 0
-
+bouquet = 0
 # OPTIONAL: use this invisible alien to say a message
 #message_sprite = t1("flower", -200,200)
 #message_sprite.hideturtle
@@ -29,17 +29,16 @@ def make_Flower ():
 window.onkeypress(make_Flower, "space")
 
 # TODO - make a second control
-def make_flower_bouquet (): 
-    global cost, flower_bouquet
+def make_bouquet (): 
+    global bouquet, Flower
     if Flower >= 10:
-        cost = cost * 2
-        flower_bouquet += 1
+        bouquet += 1
         Flower -= 10
         
-        x = 400 + 120*flower_bouquet
-        y = -250
-        create_sprite ("flower_bouquet",x,y)
-window.onkeypress(make_flower_bouquet, "c")
+        x = random.randint (-200,200)
+        y = random.randint (-200,200)
+        create_sprite ("bouquet",x,y)
+window.onkeypress(make_bouquet, "b")
 
 
 
@@ -54,6 +53,7 @@ for i in range(1000000000):
     # OPTIONAL - use the message sprite to say a message
     # message_sprite.clear()
     # message_sprite.write("Hello")
+    #The goal of the game is to get as many bouquets as possible. To reach this goal you use space bar to make flowers and once you have enough you use "b" to make bouquets. 
 
     time.sleep(0.01)
     window.update()
